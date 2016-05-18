@@ -98,7 +98,7 @@ function fill(str) {
 function no_fill() {
     ctx.fillStyle = 'white';
 }
-
+// get X & Y.
 c.addEventListener("click", onClick);
 function onClick(e)
 {
@@ -118,3 +118,41 @@ function onClick(e)
 
     /* do something with mouseX/mouseY */
 }
+
+
+
+
+
+
+//show fps:
+window.countFPS = (function () {
+  var lastLoop = (new Date()).getMilliseconds();
+  var count = 1;
+  var fps = 0;
+
+  return function () {
+    var currentLoop = (new Date()).getMilliseconds();
+    if (lastLoop > currentLoop) {
+      fps = count;
+      count = 1;
+    } else {
+      count += 1;
+    }
+    lastLoop = currentLoop;
+    return fps;
+  };
+}());
+
+
+function showfps() {
+    requestAnimationFrame(function () {
+      document.getElementById('fps').innerHTML = countFPS();
+      showfps();
+    });
+}
+
+
+
+
+
+
