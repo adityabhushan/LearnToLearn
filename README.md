@@ -1,14 +1,14 @@
 # LearnToLearn
 
-Why?
+##Why?
 
 The Learn JavaScript helps teaching programming and we chose JavaScript as language. But there is an allure to projects like Processing, which teach programming in a little more visual – and a little less black matrix. Learn Javasciprt takes the edge off of graphical programming by providing a ready-made environment. The provided framework lets the student easily create graphical solutions. The framework offers a set of drawing functions and a setup/draw structure. We used Canvas API to build this framework, but the canvas will stay in the back-end. 
 
-#Prerequisites
+##Prerequisites
 
 This will run on all linux/ Mac/ Windows based operating systems. The framework works well offline as well. You can run it on Mozilla/ Chrome/ Safari browsers. 
 
-#Get Started
+##Get Started
 
 The most important file is named project.js. This is where the student puts his/her solution. If all of it runs perfect then you can start changing our setup and draw methods. 
 Something like this-
@@ -24,14 +24,14 @@ function draw() {
 }
 ```
 
-#Sketchbook
+##Sketchbook
 
 The framework, which is used by including sketchbook.js, provides a main function. By default, it brings up a 800 x 600 px wide window.
 It calls the setup method once before the drawing starts. It can be used to do initialization.
 
 To see something on the screen, we need to write a draw method. This method is called 25 times a second (if the computer is fast enough). All drawing code is executed and the final picture is put on the screen right after the method has finished. It is highly discouraged to use delay or similar functions in the draw method. This interferes with keyboard, mouse and other handlers.
 
-#Drawing
+##Drawing
 
 ```
 // Get the window's dimensions
