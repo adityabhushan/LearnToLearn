@@ -1,6 +1,8 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var PI = 3.14;
+var flag= false;
+
 
 function rectangle(x, y, w, h) {
 
@@ -8,6 +10,10 @@ function rectangle(x, y, w, h) {
     ctx.rect(x, y, w, h);
     ctx.closePath();
     ctx.stroke();
+    if(flag)
+        ctx.fill();
+    else
+        no_fill();
 
 }
 
@@ -17,7 +23,10 @@ function circle(x, y, r, sAngle, eAngle) {
     ctx.arc(x, y, r, sAngle * PI, eAngle * PI);
     ctx.closePath();
     ctx.stroke();
-
+    if(flag)
+        ctx.fill();
+    else
+        no_fill();
 }
 
 function triangle(x, y) {
@@ -28,7 +37,10 @@ function triangle(x, y) {
     ctx.lineTo(y, y);
     ctx.closePath();
     ctx.stroke();
-
+    if(flag)
+        ctx.fill();
+    else
+        no_fill();
 }
 
 function line(x, y, z) {
@@ -37,16 +49,17 @@ function line(x, y, z) {
     ctx.lineTo(z, y);
     ctx.closePath();
     ctx.stroke();
-
 }
 
 function ellipse(x, y, radiusX, radiusY, rotation, sAngle, eAngle) {
-    //ctx.beginPath();
-    // ellipse(100, 100, 50, 75, 45 , 0, 2 )
+    ctx.beginPath();
     ctx.ellipse(x, y, radiusX, radiusY, rotation * (PI / 180), sAngle * PI, eAngle * PI);
     ctx.closePath();
     ctx.stroke();
-
+    if(flag)
+        ctx.fill();
+    else
+        no_fill();
 }
 
 function pie(x, y, a, b, c) {
@@ -57,10 +70,18 @@ function pie(x, y, a, b, c) {
     ctx.lineTo(x, y);
     ctx.closePath();
     ctx.stroke();
+    if(flag)
+        ctx.fill();
+    else
+        no_fill();
 }
-//
-function pixel(x, y) {
+
+function pixel(x, y, color) {
+
     ctx.fillRect(x, y, 1, 1);
+    ctx.strokeStyle = color;
+    ctx.stroke();
+    ctx.strokeStyle = 'black';
 }
 
 function text(str, x, y) {
@@ -70,33 +91,10 @@ function text(str, x, y) {
 
 
 function fill(str) {
-    // var str = "rgb" + "(" + r + "," + g + "," + b + ")";
-    // console.log(str);
-
-    //ctx.beginPath();
+    flag = true;
     ctx.fillStyle = str;
-    ctx.fill();
-
-
-
-
 }
 
 function no_fill() {
-
-
+    ctx.fillStyle = 'white';
 }
-
-console.log("inside sketchbook js file");
-
-/*circle(100, 100, 20, 0, 5);
-
-fill("#5cd2e4");
-
-
-
-triangle(600, 200, 500);*/
-
-
-//circle(400, 400, 20, 0, 5);
-
