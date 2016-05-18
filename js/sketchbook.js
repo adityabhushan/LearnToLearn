@@ -98,3 +98,23 @@ function fill(str) {
 function no_fill() {
     ctx.fillStyle = 'white';
 }
+
+c.addEventListener("click", onClick);
+function onClick(e)
+{
+    var mouseX, mouseY;
+
+    if(e.offsetX) {
+        mouseX = e.offsetX;
+        mouseY = e.offsetY;
+    }
+    else if(e.layerX) {
+        mouseX = e.layerX;
+        mouseY = e.layerY;
+    }
+
+    ctx.fillText(mouseX,10,10);
+    alert("mouse Pressed at X:"+mouseX+ " Y:"+mouseY);
+
+    /* do something with mouseX/mouseY */
+}
